@@ -5,7 +5,7 @@
 
 # REACT IGNORE:
 
-./node_modules
+.NotrrioEngine\frontend\node_modules
 
 # CPP IGNORE:
 
