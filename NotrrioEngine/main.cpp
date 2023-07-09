@@ -82,7 +82,7 @@ int main()
 			return 1;
 		}
 
-		char buffer[1024*4];
+		char buffer[1024*50];
 		int bytesRead = recv(ClientSocket, buffer, sizeof(buffer), 0);
 
 		if (bytesRead > 0)
