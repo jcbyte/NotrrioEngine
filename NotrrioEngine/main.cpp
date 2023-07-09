@@ -82,7 +82,7 @@ int main()
 			return 1;
 		}
 
-		char buffer[1024*50];
+		char buffer[1024*10];
 		int bytesRead = recv(ClientSocket, buffer, sizeof(buffer), 0);
 
 		if (bytesRead > 0)
@@ -95,7 +95,7 @@ int main()
 			std::string filePath = request.substr(start, end - start);
 			if (filePath.empty() || filePath == "/") filePath = "/index.html";
 
-			std::ifstream file(frontendPath + filePath);
+			std::ifstream file(frontendPath + filePath, std::ios::binary);
 			if (!file.is_open())
 			{
 				std::cout << "Failed to open file: " << frontendPath + filePath << std::endl;
