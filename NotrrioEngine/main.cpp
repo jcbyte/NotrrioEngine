@@ -95,28 +95,55 @@ int main()
 			std::string filePath = request.substr(start, end - start);
 			if (filePath.empty() || filePath == "/") filePath = "/index.html";
 
-			std::ifstream file(frontendPath + filePath, std::ios::binary);
-			if (!file.is_open())
-			{
-				std::cout << "Failed to open file: " << frontendPath + filePath << std::endl;
-			}
-
-			std::string fileContent((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
-			file.close();
-
 			std::string response;
 
-			if (fileContent.empty())
+			if (filePath.find("/api") != std::string::npos)
 			{
-				response = "HTTP/1.1 404 Not Found\r\n\r\n";
+				if (filePath == "/api/Foo")
+				{
+					std::cout << filePath;
+
+					std::string data = "{hello:\"world\"}";
+
+					response = "HTTP/1.1 200 OK\r\n";
+					response += "Content-Type: text/json\r\n";
+					response += "Content-Length: " + std::to_string(data.length()) + "\r\n";
+					response += "\r\n";
+					response += data;
+				}
+				else
+				{
+					response = "HTTP/1.1 404 Not Found\r\n\r\n";
+				}
 			}
+
 			else
 			{
-				response = "HTTP/1.1 200 OK\r\n";
-				response += "Content-Type: text/html\r\n";
-				response += "Content-Length: " + std::to_string(fileContent.length()) + "\r\n";
-				response += "\r\n";
-				response += fileContent;
+				std::ifstream file(frontendPath + filePath, std::ios::binary);
+				if (!file.is_open())
+				{
+					std::cout << "Failed to open file: " << frontendPath + filePath << std::endl;
+				}
+
+				std::string fileContent((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+				file.close();
+
+
+
+				if (fileContent.empty())
+				{
+					response = "HTTP/1.1 404 Not Found\r\n\r\n";
+				}
+				else
+				{
+					response = "HTTP/1.1 200 OK\r\n";
+					response += "Content-Type: text/html\r\n";
+					response += "Content-Length: " + std::to_string(fileContent.length()) + "\r\n";
+					response += "\r\n";
+					response += fileContent;
+				}
+
+				
 			}
 
 			int bytesSent = send(ClientSocket, response.c_str(), response.length(), 0);
