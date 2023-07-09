@@ -7,6 +7,16 @@
 
 #pragma comment(lib, "Ws2_32.lib")
 
+std::string genResponse(std::string status, std::string contentType, std::string data)
+{
+	std::string response;
+	response = "HTTP/1.1 " + status + "\r\n";
+	response += "Content-Type: " + contentType + "\r\n";
+	response += "Content-Length: " + std::to_string(data.length()) + "\r\n";
+	response += "\r\n";
+	response += data;
+}
+
 int main()
 {
 	WSADATA wsaData;
