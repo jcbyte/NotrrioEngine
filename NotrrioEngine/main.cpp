@@ -19,9 +19,7 @@ int main()
 		return 1;
 	}
 
-	
-
-	struct addrinfo* result = NULL, * ptr = NULL, hints; // the fuck does this line of code mean?
+	struct addrinfo* result = NULL, * ptr = NULL, hints; // tf does this line of code mean?
 
 	const char* defaultPort = "8000";
 
@@ -70,7 +68,7 @@ int main()
 		return 1;
 	}
 
-	const char* frontendPath = "D:\\Programming\\Web\\Typescript\\React\\NotrrioEngine\\NotrrioEngine\\frontend\\web";
+	const char* frontendPath = ".\\frontend\\web";
 	while (true)
 	{
 		SOCKET ClientSocket = INVALID_SOCKET;
@@ -89,8 +87,6 @@ int main()
 
 		if (bytesRead > 0)
 		{
-			//std::cout << "Bytes have been read" << std::endl;
-
 			std::string request(buffer, bytesRead);
 
 			// Extract requested file path from the request
@@ -99,7 +95,7 @@ int main()
 			std::string filePath = request.substr(start, end - start);
 			if (filePath.empty() || filePath == "/") filePath = "/index.html";
 
-			std::ifstream file(frontendPath + filePath); // frontendPath + filePath
+			std::ifstream file(frontendPath + filePath);
 			if (!file.is_open())
 			{
 				std::cout << "Failed to open file: " << frontendPath + filePath << std::endl;
