@@ -70,7 +70,7 @@ int main()
 		return 1;
 	}
 
-	const char* pathToSource = "C:/dev/cpp/CheatEngineServerTest/CheatEngineServerTest/src/";
+	const char* frontendPath = "D:\\Programming\\Web\\Typescript\\React\\NotrrioEngine\\NotrrioEngine\\frontend\\web";
 	while (true)
 	{
 		SOCKET ClientSocket = INVALID_SOCKET;
@@ -84,19 +84,25 @@ int main()
 			return 1;
 		}
 
-		char buffer[512];
+		char buffer[1024*4];
 		int bytesRead = recv(ClientSocket, buffer, sizeof(buffer), 0);
 
 		if (bytesRead > 0)
 		{
-			std::cout << "Bytes have been read" << std::endl;
+			//std::cout << "Bytes have been read" << std::endl;
 
-			std::string filePath = "index.html";
+			std::string request(buffer, bytesRead);
 
-			std::ifstream file(pathToSource + filePath); // pathToSource + filePath
+			// Extract requested file path from the request
+			size_t start = request.find("GET ") + 4;
+			size_t end = request.find(" HTTP/");
+			std::string filePath = request.substr(start, end - start);
+			if (filePath.empty() || filePath == "/") filePath = "/index.html";
+
+			std::ifstream file(frontendPath + filePath); // frontendPath + filePath
 			if (!file.is_open())
 			{
-				std::cout << "Failed to open file: " << pathToSource + filePath << std::endl;
+				std::cout << "Failed to open file: " << frontendPath + filePath << std::endl;
 			}
 
 			std::string fileContent((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
