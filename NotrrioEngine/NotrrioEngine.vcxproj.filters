@@ -21,9 +21,15 @@
     <ClCompile Include="Notrrio\Server.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Notrrio\ProcessScanner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Notrrio\Server.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Notrrio\ProcessScanner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

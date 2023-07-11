@@ -128,9 +128,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Notrrio\ProcessScanner.cpp" />
     <ClCompile Include="Notrrio\Server.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Notrrio\ProcessScanner.h" />
     <ClInclude Include="Notrrio\Server.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

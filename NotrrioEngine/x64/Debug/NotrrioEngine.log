@@ -1,2 +1,12 @@
-﻿  main.cpp
+﻿  ProcessScanner.cpp
+C:\dev\cpp\NotrrioEngine\NotrrioEngine\Notrrio\ProcessScanner.h(91,42): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\dev\cpp\NotrrioEngine\NotrrioEngine\Notrrio\ProcessScanner.cpp(92,22): warning C4018: '<': signed/unsigned mismatch
+C:\dev\cpp\NotrrioEngine\NotrrioEngine\Notrrio\ProcessScanner.cpp(149,98): warning C4311: 'type cast': pointer truncation from 'unsigned char *' to 'int'
+C:\dev\cpp\NotrrioEngine\NotrrioEngine\Notrrio\ProcessScanner.cpp(149,98): warning C4302: 'type cast': truncation from 'unsigned char *' to 'int'
+C:\dev\cpp\NotrrioEngine\NotrrioEngine\Notrrio\ProcessScanner.cpp(164,60): warning C4311: 'type cast': pointer truncation from 'unsigned char *' to 'int'
+C:\dev\cpp\NotrrioEngine\NotrrioEngine\Notrrio\ProcessScanner.cpp(164,60): warning C4302: 'type cast': truncation from 'unsigned char *' to 'int'
+C:\dev\cpp\NotrrioEngine\NotrrioEngine\Notrrio\ProcessScanner.cpp(164,95): warning C4311: 'type cast': pointer truncation from 'unsigned char *' to 'int'
+C:\dev\cpp\NotrrioEngine\NotrrioEngine\Notrrio\ProcessScanner.cpp(164,95): warning C4302: 'type cast': truncation from 'unsigned char *' to 'int'
+C:\dev\cpp\NotrrioEngine\NotrrioEngine\Notrrio\ProcessScanner.cpp(183,11): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\dev\cpp\NotrrioEngine\NotrrioEngine\Notrrio\ProcessScanner.cpp(290,23): warning C4244: '=': conversion from 'SIZE_T' to 'DWORD', possible loss of data
   NotrrioEngine.vcxproj -> C:\dev\cpp\NotrrioEngine\x64\Debug\NotrrioEngine.exe
